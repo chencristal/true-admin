@@ -1,0 +1,123 @@
+<!-- Inicio Container graficas y menu -->
+<div class="row container-main">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+
+        <!-- Start Div banner-->
+        <div>
+            <div style="display: inline">
+                <img src="img/logo_service.png" alt="">
+            </div>
+            <div style="display:inline; width:25%; float:right;">
+                <img id="logo_company" src="img/logo/trueandicall.png" alt="">
+            </div>
+        </div>
+        <!-- End Div banner-->
+
+        <!-- Start Line -->
+        <div class="col-md-12">
+            <hr class= "line-banner">
+        </div>
+        <!-- End Line -->
+
+
+        <!-- Start Menu -->
+        <div class="col-md-2 sidebar-ts">
+            <!-- Start Img profile -->
+            <div>
+                <img class="logo-user" src="img/profile.png" alt="">
+            </div>
+            <!-- End Img profile -->
+
+            <!-- Start name user -->
+            <span class="span-menu">User</span>
+            <!-- End name user -->
+            <br>
+            <br>
+            <!-- Start name user -->
+            <span class="span-menu">Reports</span>
+            <!-- End name user -->
+
+            <!-- Start ul menu -->
+            <ul class="menu-sidebar-ts">
+                <!--<li id="item-menu-sidebar-0" class="item-menu-ts"><a href="/summary">Summary</a></li>-->
+                <li id="item-menu-sidebar-1" class="item-menu-ts">Audios</li>
+                <ul id="sunmenu-sidebar-1" style="display: none; background: #B9DFFF; width: 65%; text-align:center; margin: 0 auto; border-radius:0 0 10px 10px">
+                    <li style="padding: 10px 0;" id="audios_agents"><a href="/audioagente">Agents</a></li>
+                    <hr style="margin: 0 !important; width: 80%; display:inline-block;">
+                    <li style="padding: 10px 0;" id="audios_customers"><a href="/audiousuario"> Customers </a></li>
+                    <hr style="margin: 0 !important; width: 80%; display:inline-block;">
+                    <li style="padding: 10px 0;" id="audios_products"><a href="/audioproducto">Products and Services</a></li>
+                </ul>
+                <!--<li id="item-menu-sidebar-2" class="item-menu-ts">Social Networks</li>
+                <ul id="sunmenu-sidebar-2" style="display:none ; background: #B9DFFF; width: 65%; text-align:center; margin: 0 auto; border-radius:0 0 10px 10px">
+                  <li style="padding: 10px 0;" id="social_twitter"><a href="/twitter">Twitter</a></li>-->
+                <!--<hr style="margin: 0 !important; width: 80%; display:inline-block;">
+                <li style="padding: 10px 0;" ><a href="#"> Facebook </a></li>-->
+                <!--</ul>-->
+                <!--<li id="item-menu-sidebar-3" class="item-menu-ts">Email</li>-->
+                <!--<li id="item-menu-sidebar-4" class="item-menu-ts">Chats</li>-->
+                <!--<li id="item-menu-sidebar-5" class="item-menu-ts">Notes</li>-->
+                <li id="item-menu-sidebar-6" class="last-item item-menu-ts">Log out</li>
+            </ul>
+            <!-- End ul menu -->
+        </div>
+        <!-- End Menu -->
+
+        <!-- Start Panel -->
+        <div class="panel-ts col-md-10">
+            <p class="text-blue-strong" id="title_panel"></p>
+
+            <input id="aux-date-start" style="display:none" >
+            <input id="aux-date-end" style="display:none">
+
+            <!-- INICIO SECCION SELECCION FECHAS -->
+            <div style="">
+                <!-- Start table 1-->
+                <div style="width: 53%; display:inline-block;">
+                    <table class="table-date">
+                        <tr>
+                            <th class="tg-yw4l"> </th>
+                            <th class="tg-yw4l"> Day</th>
+                            <th class="tg-yw4l"> Month</th>
+                            <th class="tg-yw4l"> Year</th>
+                            <th class="tg-yw4l"> </th>
+                            <th class="tg-yw4l"></th>
+                            <th class="tg-yw4l">Day</th>
+                            <th class="tg-yw4l">Month</th>
+                            <th class="tg-yw4l">Year</th>
+                            <th class="tg-yw4l"></th>
+                        </tr>
+                        <tr>
+                            <td class="text-blue-strong tg-yw4l"><span>From</span></td>
+                            <td class="tg-yw4l"><input name="day_start" id="day_start" type="text"></td>
+                            <td class="tg-yw4l"><input name="month_start" id="month_start" type="text"></td>
+                            <td class="tg-yw4l"><input name="year_start" id="year_start" type="text"></td>
+                            <td class="tg-yw4l"><img id="datepicker-button-start" src="img/calendar.png" alt=""></td>
+                            <td class="text-blue-strong tg-yw4l">To</td>
+                            <td class="tg-yw4l"><input name="day_end" id="day_end" type="text"></td>
+                            <td class="tg-yw4l"><input name="month_end" id="month_end" type="text"></td>
+                            <td class="tg-yw4l"><input name="year_end" id="year_end" type="text"></td>
+                            <td class="tg-yw4l"><img id="datepicker-button-end" src="img/calendar.png" alt=""></td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- End table -->
+
+                <div style="width: 31%; display: inline-block;">
+                    <div class = "selectpickcer-content">
+                        <span>Call Center</span>
+                        <select style="background-color: #1DC0E4;" id="select_callcenter" class="opt-descarga selectpicker" multiple="multiple" onload="">   </select>
+                    </div>
+                    <div class = "selectpickcer-content">
+                        <span>Campaing</span>
+                        <select style="background-color: #1DC0E4;" id="select_campaign" class="opt-descarga selectpicker" multiple="multiple" > </select>
+                    </div>
+                </div>
+                <!--<button style="margin-top: 0 !important; border-radius: 80px; width:14%; height:40px; background-color: #1DC0E4; border-color: #1DC0E4;" type="submit" class="btn btn-primary button-sign-in btn-send btn-generate-reports"> Send </button>-->
+                <button style="margin-top: 0 !important; border-radius: 80px; width:14%; height:40px; background-color: #1DC0E4; border-color: #1DC0E4;" type="button" class="btn btn-primary button-sign-in btn-send" id="btn-generate-reports"> Send </button>
+                <div class="alert alert-danger" id="alert_" role="alert"></div>
+            </div>
+            <!-- FIN SECCION SELECCION FECHAS -->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

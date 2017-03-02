@@ -1,0 +1,144 @@
+  </script>
+  </body>
+
+  </html><!doctype html>
+  <head>
+      <meta charset="utf-8">
+      <title>node-highcharts-exporter</title>
+      <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  </head>
+  <body>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+      <script>
+
+        function fecha_actual() {
+          var hoy = new Date();
+          var dd = hoy.getDate();
+          var mm = hoy.getMonth()+1; //hoy es 0!
+          var yyyy = hoy.getFullYear();
+
+          if(dd<10) {
+              dd='0'+dd
+          } 
+
+          if(mm<10) {
+              mm='0'+mm
+          } 
+          hoy = yyyy+'-'+mm+'-'+dd;
+          return hoy;
+        }
+
+        function containerPie(datos, text_title, cont_item, flag) {
+          $(cont_item).highcharts({
+          chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+          },
+          title: {
+            text: text_title,
+            align: 'center',
+            verticalAlign: 'middle',
+            y: 40
+          },
+          tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+          },
+          plotOptions: {
+            pie: {
+              dataLabels: {
+                enabled: true,
+                distance: -50,
+                style: {
+                  fontWeight: 'bold',
+                  color: 'white',
+                  textShadow: '0px 1px 2px black'
+                }
+              },
+            startAngle: -90,
+            endAngle: 90,
+            center: ['50%', '75%']
+            }
+          },
+          series: [{
+            type: 'pie',
+            name: 'porcentaje',
+            innerSize: '50%',
+            data:datos      
+          }]
+          });
+        }
+
+        $(function () {
+
+          $('#fecha_inicio').val(fecha_actual());
+          $('#fecha_fin').val(fecha_actual());
+
+          try {
+            var data_var = <%- JSON.stringify(match_audios) %>;
+            var data_1 = data_var.data1;
+            var data_2 = data_var.data2;
+
+            var cont_item1 ='#container1'; 
+          }
+          catch(err) {
+            console.log(err.message);
+          }
+          containerPie(data_1, data_2,cont_item1,1);
+
+          var data_var = <%- JSON.stringify(palabras_relevantes) %>; 
+
+          $('#container').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Stacked bar chart'
+            },
+            xAxis: {
+                categories: data_var.data1
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Total fruit consumption'
+                }
+            },
+            legend: {
+                reversed: true
+            },
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+            series: [ {
+                name: 'Joe',
+                data: data_var.data2
+            }]
+          });
+
+      });
+    </script>
+
+    <h1> <%= respuesta %></h1>
+    <form action="/audios" name="contactus" id="contactus" method="post">
+      <fieldset>
+        <div class="form-group">
+          <label for="fecha">Seleccione la fecha inicial:</label><br/>
+          <input name="fecha_inicio" data-date="" data-date-format="DD MMMM YYYY" type="date" value="2016-08-10" id="fecha_inicio" required="required" class="form-control"/><br/>
+          <label for="fecha">Seleccione la fecha final:</label><br/>
+          <input name="fecha_fin" data-date="" data-date-format="DD MMMM YYYY" type="date" value="2016-08-11" id="fecha_fin" required="required" class="form-control"/><br/>
+          <button type="submit" class="btn btn-primary button-sign-in">Buscar</button>
+        </div>
+      </fieldset>
+    </form>
+
+   <h1>Tweets</h1>
+    <div id="container1" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+    <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+
+  </body>

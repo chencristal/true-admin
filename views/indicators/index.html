@@ -1,0 +1,269 @@
+<% include ../partial/header.html %>
+
+<% include ../partial/menu_select.html %>
+<!--estilos-->
+<link rel="stylesheet" href="css/indicators.css" type="text/css" media="screen">
+
+<div class="panel-ts col-md-10">
+  <p class="text-blue-strong" id="title_panel"></p>
+
+  <input id="aux-date-start" style="display:none" >
+  <input id="aux-date-end" style="display:none">
+
+  <!-- INICIO SECCION SELECCION FECHAS --> 
+  <div style="">
+    <!-- Start table 1--> 
+    <div style="width: 100%; display:inline-block;">
+      <table class="table-date">
+        <tr>
+          <th> </th>
+          <th class="tg-yw4l"> Day</th>
+          <th class="tg-yw4l"> Month</th>
+          <th class="tg-yw4l"> Year</th>
+          <th> </th>
+          <th></th>
+          <th class="tg-yw4l">Day</th>
+          <th class="tg-yw4l">Month</th>
+          <th class="tg-yw4l">Year</th>
+          <th></th>
+          <th class="col-md-4">call center</th>
+          <th class="col-md-4">Campaign</th>
+        </tr>
+        <tr>
+          <td class="text-blue-strong tg-yw4l"><span>From</span></td>
+          <td class="tg-yw4l"><input name="day_start" id="day_start" type="text"></td>
+          <td class="tg-yw4l"><input name="month_start" id="month_start" type="text"></td>
+          <td class="tg-yw4l"><input name="year_start" id="year_start" type="text"></td>
+          <td class="tg-yw4l"><img id="datepicker-button-start" src="img/calendar.png" alt=""></td>
+          <td class="text-blue-strong tg-yw4l">To</td>
+          <td class="tg-yw4l"><input name="day_end" id="day_end" type="text"></td>
+          <td class="tg-yw4l"><input name="month_end" id="month_end" type="text"></td>
+          <td class="tg-yw4l"><input name="year_end" id="year_end" type="text"></td>
+          <td class="tg-yw4l"><img id="datepicker-button-end" src="img/calendar.png" alt=""></td>
+          <td class="tg-yw4l"><div class = "selectpickcer-content" style="width: 100%"><select  id="select_callcenter" class="opt-descarga selectpicker" multiple="multiple" ></select></div></td>
+          <td> <div class = "selectpickcer-content" style="width: 100% "  ><select  id="select_campaign" class="opt-descarga selectpicker" multiple="multiple" > </select></div></td>
+        </tr>  
+      </table>
+    </div>
+    <!-- End table --> 
+
+  <div style="width: 100%;display: inline-block;">
+    <table>
+      <tr>
+        <th class="separate tg-yw4l">
+          Call Duration
+        </th>
+        <th class="separate tg-yw4l">
+          Agent
+        </th>
+        <th class="separate tg-yw4l">
+          Call Schedule
+        </th>
+        <th class="separate tg-yw4l">
+          Sentiment
+        </th>
+        <th>
+          
+        </th>
+      </tr>
+      <tr>
+        <td class="separate tg-yw4l">
+          <div class = "selectpickcer-content" style="width: 100%">
+              <select  id="select_campaign" class="opt-descarga selectpicker" multiple="multiple" ></select>
+          </div>
+        </td>
+        <td class="separate tg-yw4l">
+          <div class = "selectpickcer-content" style="width: 100%">
+            <select  id="select_campaign" class="opt-descarga selectpicker" multiple="multiple" > </select>
+          </div>
+        </td>
+        <td class="separate tg-yw4l">
+          <div class = "selectpickcer-content" style="width: 100%">
+            <select  id="select_campaign" class="opt-descarga selectpicker" multiple="multiple" > </select>
+          </div>
+        </td>
+        <td class="separate tg-yw4l">
+          <div class = "selectpickcer-content" style="width: 100%">
+            <select  id="select_campaign" class="opt-descarga selectpicker" multiple="multiple" > </select>
+          </div>
+        </td>
+        <td class="separate tg-yw4l">
+          <button style="margin-top: 0 !important; border-radius: 80px;  height:40px; background-color: #1DC0E4; border-color: #1DC0E4; z-index: 1" type="submit" class="btn btn-primary button-sign-in btn-send"  onclick="btn_action()"  > Send </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  </div>
+  <div class="alert alert-danger" id="alert_" role="alert"></div>
+  <!-- FIN SECCION SELECCION FECHAS --> 
+
+
+
+
+
+
+
+	<div class="col-md-12">
+		<div class="separator">
+		</div>
+		<p class="text-blue-strong">
+			<span>
+				General Indicators		
+			</span>
+		</p>
+	</div>
+	<div class="col-md-12 space" >
+		<div class="row">
+			<div class="col-md-4 border-rigth">
+				<span class="text-blue text-inside">Total Llamadas</span>
+				<br>
+				<div class="container">
+					<div class="col-md-4">
+					<div >
+							<img class="center" src="img/icon_llamadas.png">	
+					</div>
+					</div>
+					<div class="col-md-6">
+						<div class="text-inside">
+							<span class="text-blue-strong ">123456789</span>
+						</div>
+						<div class="text-inside">
+							<span class="text-blue-ligth ">Llamadas</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 border-rigth">
+				<span class="text-blue text-inside">Total Minutos</span>
+				<br>
+				<div class="container">
+					<div class="col-md-4">
+						<div>
+							<img src="img/icon_minutos.png" class="center">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="text-inside">
+							<span class="text-blue-strong">1232154564</span>
+						</div>
+						<div class="text-inside">
+							<span class="text-blue-ligth">Minutos</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<span class="text-blue text-inside">Agentes</span>
+				<br>
+				<div class="container">
+					<div class="col-md-4">
+					<img src="img/icon_agentes.png" class="center">
+					</div>
+					<div class="col-md-6">
+						<div class="text-inside">
+							<span class="text-blue-strong">132132132</span>
+						</div>
+						<div class="text-inside">
+							<span class="text-blue-ligth">Agentes</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="separator space space-bottom"></div>
+
+
+	<div class="row">
+		<div class="col-md-4 border-rigth">
+			<span class="text-blue text-inside">Promedio Min. por llamada</span>
+			<br>
+			<div class="container">
+				<div class="col-md-4">
+					<img src="img/icon_promedio_min.png">
+				</div>
+				<div class="col-md-6">
+					<div class="text-inside">
+						<span class="text-blue-strong">12313132132</span>
+					</div>
+					<div class="text-inside">
+						<span class="text-blue-ligth">Minutos</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 border-rigth">
+			<span class="text-blue text-inside">Promedio llamadas por dia</span>
+			<br>
+			<div class="container">
+				<div class="col-md-4">
+					<img src="img/icon_promedio_llamadas.png">
+				</div>
+				<div class="col-md-6">
+					<div class="text-inside">
+						<span class="text-blue-strong">12313132132</span>
+					</div>
+					<div class="text-inside">
+						<span class="text-blue-ligth">LLamadas</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<span class="text-blue text-inside">Palabras por unid. de tiempo</span>
+			<br>
+			<div class="container">
+				<div class="col-md-4">
+					<img src="img/icon_palabras_min.png">
+				</div>
+				<div class="col-md-6">
+					<div class="text-inside">
+						<span class="text-blue-strong">12313132132</span>
+					</div>
+					<div class="text-inside" style="margin-bottom: 0px;">
+						<span class="text-blue-ligth">Palabras/min</span>
+					</div>
+				</div>
+			</div>			
+		</div>
+	</div>
+	<div class="separator space space-bottom"></div>
+	<div class="row">
+		<div class="col-md-4">
+			<span class="text-blue text-inside">Participación en llamada</span>
+			<canvas id="mychartParticipation"  ></canvas>
+		</div>
+		<div class="col-md-4" style="display: none">
+			<span class="text-blue text-inside">Llamadas Por cliente</span>
+
+		</div>
+		<div class="col-md-4" style="display: none">
+			<span class="text-blue text-inside">Tiempo entre contacto</span>
+			
+		</div>
+	</div>
+	</div>
+	
+</div>
+<!--</div>-->
+</div>
+</div>
+<% include ../partial/footer.html %>
+<script type="application/javascript" src="/js/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/paging.js"></script>
+<script type="application/javascript" src="/js/bootstrap.min.js"></script>
+<script type="application/javascript" src="js/echarts-all.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="js/trueservice/reports.js"></script>
+<script type="application/javascript" src="/js/moment.js"></script>
+<script type="text/javascript" src="js/trueservice/filters.js"></script>
+<script type="application/javascript" src="js/pikaday.js"></script>
+<script type="application/javascript" src="/js/modernizrr.js"></script>
+<script type="application/javascript" src="/js/trueservice/datepicker.js"></script>
+
+<style type="text/css" src="/css/indicators.css"></style>
+<script type="text/javascript" src="/js/indicators.js"></script>
+<script type="text/javascript" src="js/jquery.slicknav.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
+<% include ../partial/end.html %>

@@ -1,0 +1,58 @@
+<div class="tab-content">
+	<div >   
+	 	<h1>Sign Up</h1>	
+	 	<p> Welcome to !{article} </p>
+		<form action="/signup" method="post">
+			<div class="top-row">
+				<div class="field-wrap">
+					<label>
+						Company name <span class="req">*</span>
+					</label>
+					<input name="company_name" id="company_name" type="text" required autocomplete="off" />
+				</div>
+
+				<div class="field-wrap">
+					<label>
+						Company URL <span class="req">*</span>
+					</label>
+					<input name="company_url" id="company_url" type="url" required autocomplete="off" pattern="https?://.+" />
+				</div>
+
+				<div class="field-wrap">
+					<label>
+					 	Email Address<span class="req">*</span>
+					</label>
+					<input name="email" id="email" type="email" required autocomplete="off"/>
+				</div>
+
+				<div class="field-wrap">
+					<label>
+					 	Create a Password<span class="req">*</span>
+					</label>
+					<input name="pass" id="pass" type="password" required autocomplete="off"/>
+				</div>
+
+				<div class="field-wrap">
+					<label>
+					 	Confirm your Password<span class="req">*</span>
+					</label>
+					<input name="pass_conf" id="pass_conf" type="password" required autocomplete="off"/>
+				</div>
+			</div>
+			<p id = 'msj' style="display:none"> Contraseña Incorrecta </p>
+			<button type="submit" class="button button-block"/>Get Started</button>
+		</form>
+	</div>
+</div><!-- tab-content -->
+
+<script>
+	try {
+		var response = <%- JSON.stringify(response) %>;
+		if (response == 'True') {
+			msj.style.display = 'block';
+		}
+	} catch(e) {
+		// statements
+		console.log(e);
+	}
+</script> 

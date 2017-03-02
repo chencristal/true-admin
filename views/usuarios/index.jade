@@ -1,0 +1,159 @@
+extends ../layout
+block content
+  p #{respuesta}  
+  p cantidad_tweets:
+  p #{cantidad_tweets} 
+  p cantidad_utiles:
+  p #{cantidad_utiles} 
+
+  form(action='/usuarios', name='contactus', id='contactus', method='post')
+      fieldset
+        .form-group
+          label(for='fecha') Seleccione la fecha inicial:
+          br
+          input.form-control(name='fecha_inicio', data-date="" data-date-format="DD MMMM YYYY", type='date', value='2016-08-10', id='fecha_inicio', required='required')
+          br
+          label(for='fecha') Seleccione la fecha final:
+          br
+          input.form-control(name='fecha_fin', data-date="" data-date-format="DD MMMM YYYY", type='date', value='2016-08-11', id='fecha_fin', required='required')
+          br
+          button(type='submit').btn.btn-primary.button-sign-in Buscar
+
+  script(src='http://code.jquery.com/jquery-1.10.1.min.js')
+  script(src='http://code.highcharts.com/highcharts.js')
+  script(src='http://code.highcharts.com/modules/exporting.js')
+  script(src='https://code.highcharts.com/highcharts-more.js')
+
+  #container1(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+  .container
+    .row
+      .col-md-4
+        #container2(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+      .col-md-4
+        #container3(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+      .col-md-4
+        #container4(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+
+  #container5(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+  #container6(style='min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto')
+
+    script.     
+      function container_line(nStr) {
+      $('#container1').highcharts({
+      title: {
+      text: !{data_char}.titles
+      },
+      xAxis: {
+      categories: !{data_char}.categorias
+      },
+      yAxis: {
+      title: {
+      text: null
+      }
+      },
+      tooltip: {
+      crosshairs: true,
+      shared: false
+      },
+      series: [{
+      name: 'Tweets recopilados',
+      data: !{data_char}.data1,
+      zIndex: 1,
+      marker: {
+      fillColor: 'white',
+      lineWidth: 2,
+      lineColor: Highcharts.getOptions().colors[0]
+      }
+      }, {
+      name: 'Tweets utiles',
+      data: !{data_char}.data2,
+      zIndex: 0,
+      marker: {
+      fillColor: 'white',
+      lineWidth: 2,
+      lineColor: Highcharts.getOptions().colors[0]
+      }
+      }],
+      });
+      }
+      
+      function containerPie(datos, text_title, cont_item, flag) {
+      $(cont_item).highcharts({
+      chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: 0,
+      plotShadow: false
+      },
+      title: {
+      text: text_title,
+      align: 'center',
+      verticalAlign: 'middle',
+      y: 40
+      },
+      tooltip: {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      },
+      plotOptions: {
+      pie: {
+      dataLabels: {
+      enabled: true,
+      distance: -50,
+      style: {
+      fontWeight: 'bold',
+      color: 'white',
+      textShadow: '0px 1px 2px black'
+      }
+      },
+      startAngle: -90,
+      endAngle: 90,
+      center: ['50%', '75%']
+      }
+      },
+      series: [{
+      type: 'pie',
+      name: 'porcentaje',
+      innerSize: '50%',
+      data:datos,
+      point:{
+      events:{
+      click: function (event) {      
+      if (flag == 1){
+      var res = !{data_general}.data5[0];
+      var item = res.indexOf(this.name);
+      var datos4= !{data_general}.data4[item];  
+      containerPie(datos4, res[item],cont_item3,2)
+      }
+      if (flag == 2){
+      var res = !{data_general}.data7[0];
+      var item = res.indexOf(this.name);
+      var datos4= !{data_general}.data6[item];  
+      containerPie(datos4, res[item],cont_item4,0)
+      }
+      }
+      }
+      }      
+      }]
+      });
+      }
+
+      $(function () { 
+
+      temas_general = !{data_general}.data3  
+      text_title2 = !{data_general}.title_temaglobal 
+      cont_item2 ='#container2'  
+
+      temas = !{data_general}.data2  
+      text_title3 = !{data_general}.title_tema 
+      cont_item3 ='#container3'    
+
+      subtemas = !{data_general}.data1  
+      text_title4 = !{data_general}.title_subtema 
+      cont_item4 ='#container4'
+     
+      container_line('nStr')
+
+      containerPie(temas_general, text_title2,cont_item2,1)
+      containerPie(temas, text_title3,cont_item3,2)
+      containerPie(subtemas, text_title4,cont_item4,0)
+
+      });

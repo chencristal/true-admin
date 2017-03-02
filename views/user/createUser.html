@@ -1,0 +1,119 @@
+<!-- Start Header-->
+<% include ../partial/header.html %>
+<!-- End Header -->
+
+<!-- Start Menu -->
+<% include ../partial/menu_select.html %>
+<div class="col-md-10">
+	<div class="tab-content">
+		<div >   
+		 	<h1>Create User</h1>	
+			<form action="/PivB8JDIvk2piO3nTrue724service" method="post" enctype="multipart/form-data">
+				<div class="top-row">
+					<div class="field-wrap">
+						<label class="input_label">
+							company Name<span class="req">*</span>
+						</label>	
+						<input id="company_name" type="text" name="company_name" required autocomplete="off">
+					</div>
+
+					<div class="field-wrap">
+						<label class="input_label">
+							User name <span class="req">*</span>
+						</label>
+						<input name="user_name" id="user_name" type="text" required autocomplete="off" />
+					</div>
+
+					<div>
+						<label class="input_label">
+							Full User Name <span class="req"></span>
+						</label>	
+						<input type="text" name="user_full_name" id="user_full_name" required autocomplete="off">
+					</div>
+
+					<div class="field-wrap">
+						<label class="input_label">
+						 	Email Address<span class="req">*</span>
+						</label>
+						<input name="email" id="email" type="email" required autocomplete="off"/>
+					</div>
+
+					<div class="field-wrap">
+						<label class="input_label">
+							Company Language<span class="req"></span>
+						</label>
+						<input type="text" name="language_company">
+					</div>
+
+					<div>
+						<label class="input_label">
+							Company Phone<span class="req"></span>		
+						</label>
+						<input type="numeric" name="company_phone">
+					</div>
+
+					<div>
+						<label class="input_label">
+							Company Country<span class="req"></span>
+						</label>
+						<input type="text" name="country_company">
+					</div>
+
+					<div>
+						<label class="input_label">
+							Company Cloud Name<span class="req"></span>
+						</label>
+						<input type="text" name="name_cloud_company">
+					</div>
+
+
+					<div class="field-wrap">
+						<label class="input_label">
+						 	Create a Password<span class="req">*</span>
+						</label>
+						<input name="pass" id="pass" type="password" required autocomplete="off"/>
+					</div>
+
+					<div class="field-wrap">
+						<label class="input_label">
+						 	Confirm your Password<span class="req">*</span>
+						</label>
+						<input name="pass_conf" id="pass_conf" type="password" required autocomplete="off"/>
+					</div>
+
+					<div class="field-wrap">
+						<label class="input_label" >
+							Company Logo<span class="req">*</span>
+						</label>
+						<input type="file" name="logo_file" id="logo_file" style="display: inline;">		
+					</div>
+				</div>
+				<p id = 'msj' style="display:none"> Contraseña Incorrecta </p>
+				<button type="submit" class="button button-block"/>Get Started</button>
+			</form>
+		</div>
+	</div><!-- tab-content -->
+</div>
+<script>
+	try {
+		var response = <%- JSON.stringify(response) %>;
+		if (response == 'True') {
+			alert('User succesfuly create');
+		}
+	} catch(e) {
+		// statements
+		console.log(e);
+	}
+</script>
+
+
+<% include ../partial/end_menu.html %>
+<!-- End Menu -->
+<!-- Start Footer -->
+<% include ../partial/footer.html %>
+	<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+	<script type="text/javascript" src="js/jquery.slicknav.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/sessionWatcher.js"></script>
+<!-- End Footer -->
+<% include ../partial/end.html %>

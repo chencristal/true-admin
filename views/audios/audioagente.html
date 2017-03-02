@@ -1,0 +1,291 @@
+
+<!-- Header -->
+<% include ../partial/header.html %>
+<!-- End Header -->
+<!-- Menu -->
+<% include ../partial/menu_select.html %>
+<!-- End Menu -->
+<!-- Date Select -->
+<% include ../partial/date_select.html %>
+<!-- End Date Select -->
+
+      <!-- START DIV MATCH AND NETWORK -->
+      <div class="contenedor-tabla margin-top-2">
+            <!-- START DIV STOPWORDS -->
+      <div id="container_browser"  class="row container-conteo col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display: none;">
+        
+        <div class="col-md-10 col-sm-10 col-xs-10  col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <h4 ><span class="text-blue-strong">Specific Word:</span></h4>
+            <input id="input_browser" class="col-xs-10 col-sm-10 col-md-10 col-lg-10" type="text" placeholder="Word...">
+            <button class="btn-go-conteo col-xs-2 col-sm-2 col-md-2 col-lg-2" onclick="searchWords()">Go!</button>
+          </div>
+          <!--<div class="triangule-left"></div>-->
+          <div class="total-words-count text-center col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <p class="txt-total-match-found" id="total_browser">0</p>
+            <p class="txt-match-found">Matchs Found</p>
+          </div>
+          <div class="text-center col-xs-3 col-sm-3 col-md-3 col-lg-3">
+          <!--<button class=" btn-download-conteo " type="submit" onclick="getGoBrowser()" >Download! </button>-->
+          </div>
+        </div>
+        
+      </div>
+      <!-- END DIV STOPWORDS -->
+      <div style="margin-top:25px; margin-right: 0px; margin-left: 0px;" class="row contenidos contenedor-tabla margin-top-2" >
+      <!-- start div match-->
+        <!--class quitada center-block -->
+        <div class="columnas veragentes col-xs-12 col-sm-6 col-md-6 col-lg-6 container-match cont-block-border-blaco" id= "container_match" style="display:none; border:2px solid white;" >                            
+        <!--class quitada pull-left -->
+          <h3 class="text-blue-strong text-left col-xs-12 col-sm-12 col-md-12 col-lg-12" > Match Audio Agents </h3>                  
+          <!--<div class="match" style="padding-top: 75px; cursor: pointer;" data-estado="plegado">
+          <h1 id="numero" class="porcentaje-match timer" data-to="63" data-speed="1000"></h1>
+          </div>
+          <br><br>
+          -->
+          <div class="margin-top-3 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <canvas id="myChart6"  style="/*max-width: 100%; min-height: 230px;*/"  ></canvas>
+          </div>
+
+          <!--<div class="triangule-reg"> </div>-->
+          <div class="text-center col-xs-12 col-sm-12 col-md-12 col-lg-12 foat-top-center-1">
+          <p class="negative_letter pos_per_agent" id="count_match" ></p>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <!--class quitada reg-encontrados  -->
+            <div class="text-left col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color: transparent !important;">
+              <p class="num-reg" id="total_match">0</p>
+              <p class="text-reg">Match Founds</p>
+            </div>
+            
+            <div class="text-right col-xs-4 col-sm-4 col-md-4 col-lg-4 col-md-offset-4" style="background-color: transparent !important;">
+              <p class="num-reg" id="total_files">0</p>
+              <p class="text-reg">Total</p>
+            </div>
+        <!--class quitada reg-descargar  -->
+            <!--<div class="text-right col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2" style="width: 47%;">
+              <p class="text-blue-strong">Download Graphic or Report</p>
+              <select class="opt-descarga" name="download_match" id="download_match">
+              <option value="select1">EXCEL</option>
+              <option value="select2">PNG</option>
+              <option value="select3">PDF</option>
+              </select>
+              <button class="btn-go" type="submit" id=btn_go_match style="width:27%;" onclick="getGoMatch()" >Go!</button>
+            </div> -->
+          </div>
+        </div>
+        <!-- end div match-->
+
+
+        <!-- start div match-->
+        <div class="columnas col-xs-12 col-sm-6 col-md-6 col-lg-6 container-match" id="container_network" style="display:none;  border:2px solid white;">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+          
+          <h3 class="text-blue-strong col-xs-6 col-sm-6 col-md-4 col-lg-3" style="display:inline-block;"> Keywords </h3>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <select id="categoriesW"  class="opt-descarga" onchange="selectWords(this)">  </select>  
+          </div>
+        </div>
+          <!--<div id="main"></div>-->
+
+          <div class=" margin-top-2 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <!--<div class="pantallas"></div>-->
+            <div id= "chartWraper">
+              <canvas id="myChart" style="min-width: 100%; min-height: 230px;"  ></canvas>
+            </div>
+          </div>
+         
+          <!--<div class="triangule-reg"></div>-->
+          <div class=" margin-top-2 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            
+              <div class="text-left col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color: transparent !important;">
+                <p class="num-reg" id="total_Keywords">4</p>
+                <p class="text-reg">Match Founds</p>
+              </div> 
+
+              <div class="text-right col-xs-4 col-sm-4 col-md-4 col-lg-4 col-md-offset-4" style="background-color: transparent !important;">
+                <p class="num-reg" id="total_files_keywords">0</p>
+                <p class="text-reg">Total</p>
+              </div>
+
+              <!--<div class="text-right col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2" style="width: 47%;">
+                <p class="text-blue-strong">Download Graphic or Report</p>
+                <select class="opt-descarga" name="download_keyword" id="download_keyword">
+                  <option value="select1">EXCEL</option>
+                  <option value="select2">PNG</option>
+                  <option value="select3">PDF</option>
+                </select>
+                <button class="btn-go" type="submit" id=btn_go_word style="width:27%;" onclick="getGoKeywords()" >Go!</button>
+              </div> -->
+            </div>
+            
+          </div>
+        <!-- end div match-->
+      </div>
+      </div>
+      <!-- END DIV MATCH AND NETWORK -->
+
+      <!-- START DIV EMOTIONS -->
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 container-sent container-match" id = "container_sentiment" style="visibility: hidden">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h3 class="text-blue-strong pull-left"> Sentiment Analysis </h3>
+      </div>
+        
+
+        <!-- Div Chart -->
+        <!--<div class="chart-senti ct-chart" id="chart_sentiment"> </div>
+        <!-- Happy Images-->
+        <!--<div id="img_happy" class="container-img happy animated bounceIn infinite"  ></div>
+        <div id="balloon_happy" class="container-balloon" style="visibility: hidden"></div>
+        <h2 id= "text_happy" style="font-size:15px; color: white; color:white; visibility: hidden"> 60%</h2>
+        <div id="bar_happy" class="container-bar happy-bar" style="visibility: hidden"></div>
+
+        <div id="img_angry" class="container-img angry animated bounceIn infinite"  ></div>
+        <div id="balloon_angry" class="container-balloon" style="visibility: hidden"></div>
+        <h2 id= "text_angry" style="font-size:15px; color: white; color:white; visibility: hidden"> 60%</h2>
+        <div id="bar_angry" class="container-bar angry-bar" style="visibility: hidden"></div>
+
+        <div id="img_happy_happy" class="container-img happy-happy animated bounceIn infinite"  ></div>
+        <div id="balloon_love" class="container-balloon" style="visibility: hidden"></div>
+        <h2 id= "text_love" style="font-size:15px; color: white; color:white; visibility: hidden"> 60%</h2>
+        <div id="bar_love" class="container-bar love-bar" style="visibility: hidden"></div>
+
+        <div id="img_sad" class="container-img sad animated bounceIn infinite" ></div>
+        <div id="balloon_sad" class="container-balloon" style="visibility: hidden"></div>
+        <h2 id= "text_sad" style="font-size:15px; color: white; color:white; visibility: hidden"> 60%</h2>
+        <div id="bar_sad" class="container-bar sad-bar" style="visibility: hidden"></div>-->
+        <div class="margin-top-2 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3">
+          <label class="positive_letter">Positive<p id = "value_pos" class="letter_center_per">0%</p></label>
+          <canvas id="myChart2" width="400" height="400" style="height:400px; background-color: #F2F2F2;"  ></canvas>
+          <div class="text-center col-xs-12 col-sm-12 col-md-12 col-lg-12 foat-top-center">
+          <p class="negative_letter percent_agent" id="pos1" ></p>
+          <p class="negative_letter text_percent_agent" id="pos_tag" ></p>
+          </div>
+        </div>
+        <!-- <div class="col-md-3">
+        <br><br>
+        <canvas id="myChart3" width="400" height="400" style="height:400px; background-color: #F2F2F2;"  ></canvas>
+        <p class="negative_letter percent_agent" id="pos2"></p>
+        <p class="negative_letter text_percent_agent">love</p>
+        </div> -->
+        <div class="col-md-3">
+          <label class="negative_letter">Negative<p id = "value_neg" class="letter_center_per">0%</p></label>
+          <canvas id="myChart4" width="400" height="400" style="height:400px; background-color: #F2F2F2;"  ></canvas>
+          <div class="text-center col-xs-12 col-sm-12 col-md-12 col-lg-12 foat-top-center">
+          <p class="negative_letter percent_agent" id="neg1"></p>
+          <p class="negative_letter text_percent_agent" id="neg_tag" ></p>
+          </div>
+        </div>
+        
+        </div>
+        <!--<div class="col-md-3">
+        <br><br>
+        <canvas id="myChart5" width="400" height="400" style="height:400px; background-color: #F2F2F2;"  ></canvas>
+        <p class="negative_letter percent_agent" id="neg2"></p>
+        <p class="negative_letter text_percent_agent">Sadness</p>
+        </div> -->
+        <!--<div class="triangule-reg"></div>-->
+        <div class="margin-top-2 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        <div class="text-left col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color: transparent !important;">
+          <p class="num-reg" id="total_sentiments">0</p>
+          <p class="text-reg">Match Founds</p>
+        </div> 
+
+        <div class="text-right col-xs-4 col-sm-4 col-md-4 col-lg-4 col-md-offset-4" style="background-color: transparent !important;">
+          <p class="num-reg" id="total_files_sentiments">0</p>
+          <p class="text-reg">Total</p>
+        </div>
+
+        
+        <!--<div class="reg-datos" style="">
+        <div class="num-ok">60%</div><span style="margin: 0 10px;" class="text-blue-strong">Positives</span>
+        <div class="num-bad">40%</div><span style="margin: 0 10px;" class="text-blue-strong">Negatives</span>
+        </div>-->
+
+        <!--<div class="text-right col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xs-offset-5 col-sm-offset-5 col-md-offset-5 col-lg-offset-5" >
+          <p class="text-blue-strong">Download Graphic or Report</p>
+          <select class="opt-descarga" name="download_sentiments" id="download_sentiments">
+          <option value="select1">EXCEL</option>
+          <option value="select2">PNG</option>
+          <option value="select3">PDF</option>
+          </select>
+          <button class="btn-go" type="submit" id=btn_go_sent style="width:27%;" onclick="getGOSentiments()" >Go!</button>
+        </div> -->
+        </div>
+
+      </div>
+      <!-- END DIV EMOTIONS -->
+
+    <!-- * End div menu *--> 
+    </div>
+    <!-- End Panel --> 
+  </div>
+</div>
+
+
+<!-- Popup -->
+<% include ../partial/popup.html %>
+<!-- End Popup  -->
+<!-- Footer -->
+<% include ../partial/footer.html %>
+<!-- End Footer -->
+
+<script src="js/index.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="js/chart.js"></script>
+<script type="text/javascript" src="js/chart.min.js"></script>
+<script type="text/javascript" src="js/Chart.bundle.js"></script>
+<script type="text/javascript" src="js/Chart.bundle.min.js"></script>
+<script type="text/javascript" src="js/jquery.migrate.js"></script>
+<script type="text/javascript" src="js/modernizrr.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/nivo-lightbox.min.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="js/jquery.appear.js"></script>
+<script type="text/javascript" src="js/count-to.js"></script>
+<script type="text/javascript" src="js/jquery.textillate.js"></script>
+<script type="text/javascript" src="js/jquery.lettering.js"></script>
+<script type="text/javascript" src="js/jquery.easypiechart.min.js"></script>
+<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="js/jquery.parallax.js"></script>
+<script type="text/javascript" src="js/mediaelement-and-player.js"></script>
+<script type="text/javascript" src="js/jquery.slicknav.js"></script>
+<script type="text/javascript" src="js/top-menu.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/moment.js"></script>
+<script type="text/javascript" src="js/pikaday.js"></script>
+<script type="text/javascript" src="js/jquery.easydropdown.js" ></script>
+<script type="text/javascript" src="js/chartist.min.js"></script>    
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/c3.js"></script>
+<script type="text/javascript" src="js/chart-sentiments.js"></script>
+<script type="text/javascript" src="js/build/dist/echarts.js"></script>
+<script type="text/javascript" src="js/chart-network.js"></script>
+<script src="js/html2canvas.js" type="text/javascript"></script>
+<script src="js/canvas2image.js" type="text/javascript"></script>
+<script src="js/jspdf.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+<script type="text/javascript" src="js/jquery.popdown.js"></script>
+<script type="text/javascript" src="js/trueservice/audio.js"></script>
+<script type="text/javascript" src="js/trueservice/popup_agente.js"></script>
+<script type="text/javascript" src="js/trueservice/datepicker.js"></script>
+<script type="text/javascript" src="js/trueservice/network_agente.js"></script>
+<script type="text/javascript" src="js/trueservice/download_report.js"></script>
+<script type="text/javascript" src="js/sessionWatcher.js"></script>
+<!-- Scripts Agente -->
+<script type="text/javascript" src="js/trueservice/agentejs.js"></script>
+
+
+<!-- End -->
+<% include ../partial/end.html %>
+<!-- End End -->

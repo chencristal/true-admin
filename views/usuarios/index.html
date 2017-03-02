@@ -1,0 +1,234 @@
+  </script>
+  </body>
+
+  </html><!doctype html>
+  <head>
+      <meta charset="utf-8">
+      <title>node-highcharts-exporter</title>
+      <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  </head>
+  <body>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+      <script>
+
+        function fecha_actual() {
+          var hoy = new Date();
+          var dd = hoy.getDate();
+          var mm = hoy.getMonth()+1; //hoy es 0!
+          var yyyy = hoy.getFullYear();
+
+          if(dd<10) {
+              dd='0'+dd
+          } 
+
+          if(mm<10) {
+              mm='0'+mm
+          } 
+          hoy = yyyy+'-'+mm+'-'+dd;
+          return hoy;
+        }
+
+        function container_line() {
+          try {
+            var data_var = <%- JSON.stringify(data_char) %>;
+            var title_var = data_var.titles;
+            var categorias = data_var.categorias;
+            var data_1 = data_var.data1;
+            var data_2 = data_var.data2;
+          }
+          catch(err) {
+            console.log(err.message);
+          }
+          $('#container1').highcharts({
+          title: {
+            text: title_var.titles
+          },
+          xAxis: {
+            categories: categorias
+          },
+          yAxis: {
+            title: {
+              text: null
+            }
+          },
+          tooltip: {
+            crosshairs: true,
+            shared: false
+          },
+          series: [{
+            name: 'Tweets recopilados',
+            data: data_1,
+            zIndex: 1,
+            marker: {
+              fillColor: 'white',
+              lineWidth: 2,
+              lineColor: Highcharts.getOptions().colors[0]
+            }
+            }, {
+              name: 'Tweets utiles',
+              data: data_2,
+              zIndex: 0,
+              marker: {
+                fillColor: 'white',
+                lineWidth: 2,
+                lineColor: Highcharts.getOptions().colors[0]
+              }
+          }],
+          });
+        }
+
+        function containerPie(datos, text_title, cont_item, flag) {
+          try {
+            var data_var = <%- JSON.stringify(data_general) %>;
+            var data_4 = data_var.data4;
+            var data_5 = data_var.data5;
+            var data_6 = data_var.data6;
+            var data_7 = data_var.data7;  
+            var cont_item3 ='#container3';            
+            var cont_item4 ='#container4'; 
+          }
+          catch(err) {
+            console.log(err.message);
+          }
+          $(cont_item).highcharts({
+          chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+          },
+          title: {
+            text: text_title,
+            align: 'center',
+            verticalAlign: 'middle',
+            y: 40
+          },
+          tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+          },
+          plotOptions: {
+            pie: {
+              dataLabels: {
+                enabled: true,
+                distance: -50,
+                style: {
+                  fontWeight: 'bold',
+                  color: 'white',
+                  textShadow: '0px 1px 2px black'
+                }
+              },
+            startAngle: -90,
+            endAngle: 90,
+            center: ['50%', '75%']
+            }
+          },
+          series: [{
+            type: 'pie',
+            name: 'porcentaje',
+            innerSize: '50%',
+            data:datos,
+            point:{
+              events:{
+                click: function (event) {      
+                  if (flag == 1){
+                    var res = data_5[0];
+                    var item = res.indexOf(this.name);
+                    var datos4= data_4[item];  
+                    containerPie(datos4, res[item],cont_item3,2)
+                    $('#container4').css({'visibility' : 'hidden'});
+                  }
+                  if (flag == 2){
+                    var res = data_7[0];
+                    var item = res.indexOf(this.name);
+                    var datos4= data_6[item];  
+                    containerPie(datos4, res[item],cont_item4,0)
+                    $('#container4').css({'visibility' : 'visible'});
+                  }
+                }
+              }
+            }      
+          }]
+          });
+        }
+
+          $(function () {
+
+            $('#fecha_inicio').val(fecha_actual());
+            $('#fecha_fin').val(fecha_actual());
+
+            container_line();
+
+            try {
+              var data_var = <%- JSON.stringify(data_general) %>;
+              var data_1 = data_var.data1;
+              var data_2 = data_var.data2;
+              var data_3 = data_var.data3;
+
+              var text_title2 = data_var.title_temaglobal;
+              var text_title3 = data_var.title_tema;
+              var text_title4 = data_var.title_subtema;
+
+              var cont_item1 ='#container1'; 
+              var cont_item2 ='#container2';  
+              var cont_item3 ='#container3';  
+              var cont_item4 ='#container4';
+
+              var cont_item5 ='#container5';
+              var cont_item6 ='#container6';   
+            }
+            catch(err) {
+              console.log(err.message);
+            }
+
+            containerPie(data_3, text_title2,cont_item2,1);
+            containerPie(data_2, text_title3,cont_item3,2);
+            containerPie(data_1, text_title4,cont_item4,0);
+            containerPie(data_var.data8, "Postivos",cont_item5,0);
+            containerPie(data_var.data9, "Negativos",cont_item6,0);
+
+
+
+          });
+    </script>
+
+    <h1> <%= respuesta %></h1>
+    <form action="/usuarios" name="contactus" id="contactus" method="post">
+      <fieldset>
+        <div class="form-group">
+          <label for="fecha">Seleccione la fecha inicial:</label><br/>
+          <input name="fecha_inicio" data-date="" data-date-format="DD MMMM YYYY" type="date" value="2016-08-10" id="fecha_inicio" required="required" class="form-control"/><br/>
+          <label for="fecha">Seleccione la fecha final:</label><br/>
+          <input name="fecha_fin" data-date="" data-date-format="DD MMMM YYYY" type="date" value="2016-08-11" id="fecha_fin" required="required" class="form-control"/><br/>
+          <button type="submit" class="btn btn-primary button-sign-in">Buscar</button>
+        </div>
+      </fieldset>
+    </form>
+
+   <h1>Tweets</h1>
+    <div id="container1" style="min-width: 310px; height: 200px; max-width: 200px; margin: 0 auto"></div>
+    <div class="row">
+      <div class="col-md-3">
+        <div id="container2" style="min-width: 310px; height: 200px; max-width: 200px; margin: 0 auto"></div>
+      </div>
+      <div class="col-md-3">
+        <div id="container3" style="min-width: 310px; height: 200px; max-width: 200px; margin: 0 auto"></div>
+      </div>
+      <div class="col-md-3">
+        <div id="container4" style="min-width: 310px; height: 200px; max-width: 200px; margin: 0 auto"></div>
+      </div>
+    </div>  
+    <div class="row">
+      <div class="col-md-3">
+        <!-- sentimientos positivos-->
+        <div id="container5" style="min-width: 310px; height: 200px; max-width: 200px; margin: 0 auto"></div>
+      </div>
+      <div class="col-md-3">
+        <!-- sentimientos negativos-->
+        <div id="container6" style="min-width: 310px; height: 200px; max-width: 200px; margin: 0 auto"></div>
+      </div>
+    </div>  
+
+  </body>
+

@@ -1,0 +1,102 @@
+.container-main{
+	padding:15px; 
+	background-color:white; 
+	width: 95%;
+	margin:auto !important; 
+	float:none !important; 
+	border-radius: 6px; 
+	display: flex; 
+	position: relative; 
+	top: -200px;
+}
+
+.banner-logo-media{
+	display:inline; 
+}
+
+.banner-logo-client{
+	display:inline; 
+	width:25%; 
+	float:right;
+}
+
+.logo-media{
+	display:inline; 
+	width:15%; 
+	position: relative;
+}
+
+.logo-user{
+	style="margin-top:-5px;"
+}
+
+.line-banner{
+	border-color: #1D7DE4;
+}
+
+.span-menu{
+	display:block;
+}
+
+.ul-menu{
+	background: #B9DFFF;
+	width: 65%;
+	text-align:center;
+	margin: 0 auto;
+	border-radius:0 0 10px 10px;
+}
+
+.btn-send{
+	margin-top: 35px;
+	border-radius: 80px; 
+	width:125px; 
+	height:40px; 
+	background-color: #1DC0E4; 
+	border-color: #1DC0E4;
+}
+
+.porcentaje-match{
+    -webkit-animation: color-change 1s infinite;
+    -moz-animation: color-change 1s infinite;
+    -o-animation: color-change 1s infinite;
+    -ms-animation: color-change 1s infinite;
+    animation: color-change 1s infinite;
+}
+
+@-webkit-keyframes color-change {
+    0% { color: #134854; }
+    50% { color: #1382c5; }
+    100% { color: #134854; }
+}
+@-moz-keyframes color-change {
+    0% { color: #134854; }
+    50% { color: #1382c5; }
+    100% { color: #134854; }
+}
+@-ms-keyframes color-change {
+    0% { color: #134854; }
+    50% { color: #1382c5; }
+    100% { color: #134854; }
+}
+@-o-keyframes color-change {
+    0% { color: #134854; }
+    50% { color: #1382c5; }
+    100% { color: #134854; }
+}
+@keyframes color-change {
+    0% { color: #134854; }
+    50% { color: #1382c5; }
+    100% { color: #134854; }
+}
+
+.separator{
+	margin-top: 5px;
+	border-bottom: 2px solid #1DC0E4;
+	border-width: thin;
+}
+
+.left-border{
+	margin-top: 5px;
+	border-left: 2px solid #1DC0E4;
+	border-width: thin;
+}

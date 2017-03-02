@@ -1,0 +1,119 @@
+<!-- start div list agents-->
+<div id="list" class="oculto">  
+  <!-- positive agend list-->       
+  <div>
+    <div class="text-right col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3 " style=" top: 85px;z-index: 2; ">
+    <button id="cerrar_listado" class="btn-cerrar-pop">X</button>
+    </div>
+    <div class="style-shadowl borde-radius-style no-padding col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3"  style=" top: 65px; ">
+      
+    <div id="list"  class="borde-radius-style-top no-margin text-center list-group-item list-group-item-info col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <h1 class="color-fff">
+      Agents list
+      </h1>
+    </div>
+
+    <div class="borde-radius-style-bottom no-margin cont-ul-list-agentes col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+    <ul class="listadoagentes col-xs-12 col-sm-12 col-md-12 col-lg-12" id = "listadoagentes"> </ul>
+    </div>
+  </div>
+  </div>
+  <!-- negative agend list-->  
+  <!-- 
+  <div>
+  <div id="list"  class="list-group-item list-group-item-danger" style="position: absolute; width: 37%; top: 65px; right: 10%; ">Agents WRONG</div>
+  <ul class="listadoagentesbad" id="listadoagentesbad"> </ul>
+  </div>
+  -->
+</div>
+<!-- end div list agents-->
+
+
+<!-- start div info audio or text-->
+<div id="list" class="oculto datos-agente">
+             
+      <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+    <div class="text-right col-xs-12 col-sm-12 col-md-12 col-lg-12 " style=" top: 20px;z-index: 2; ">
+        <button id="cerrar_agentes" class="btn-cerrar-pop">X</button>
+    </div>
+           <div class="borde-radius-style style-shadowl fondo-bbb no-padding col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <table class="borde-radius-style-top col-xs-12 col-sm-12 col-md-12 col-lg-12 table table-striped">
+            <thead>
+            <tr class="borde-radius-style-top">
+              <th colspan=3 class="borde-radius-style-top nombre-agente">
+                <h1 id ="name_agent" class="txt-nombre-agente">  </h1>
+              </th>
+            </tr>
+            <tr class="fondo-fff">
+            <th >
+                    <h3>Call ID</h3>
+            </th>
+            <th>
+                    <h3>Date</h3>
+            </th>
+            <th>
+                    <h3>Match</h3>
+            </th>
+            </tr>
+            </thead>
+          </table>  
+          <div class="col-xs-12 col-sm-12 padding-3p col-md-12 col-lg-12">
+            <div class="scroll-data borde-radius-style fondo-fff  col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <table class="borde-radius-style table table-striped">
+            <tbody id="listado-afa" height=" 450px";>
+
+            </tbody>
+         </table>
+            </div>
+          </div>
+      <!--
+      <div class="row" style="width:60%; margin-left: 5%; display: inline-block;">
+        <div class="col-md-4 col-sm-4 col-xs-4 columna-agente">
+          <div class="titulo-agente">
+            <h3>Call ID</h3>
+          </div> 
+          <div>
+            <ul class="listado-llamdas" id="listado_llamadas"> </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4 col-xs-4 columna-agente">
+          <div class="titulo-agente">
+            <h3>Date</h3>
+          </div>
+          <ul class="listado-fechas" id="listado_fechas"> </ul>
+        </div>
+
+        <div class="col-md-4 col-sm-4 col-xs-4 columna-agente">
+          <div class="titulo-agente">
+            <h3>Match</h3>
+          </div>
+          <ul class="listado-telefonos" id="list_match"> </ul>
+        </div>
+      </div>
+      -->
+          <table class="borde-radius-style-bottom col-xs-12 col-sm-12 col-md-12 col-lg-12 table no-border-solid">
+            <tbody>
+              
+              <!--<tr class="container-btn-descargar no-border-solid">
+                <td colspan="3" class="text-center">
+                  <button class="btn-descargar-agentes">Download</button>
+                </td>
+              </tr>-->
+            </tbody>    
+          </table>
+           </div> 
+</div>
+  <div class="row col-xs-5 col-sm-5 col-md-5 col-lg-5" id="container_audio" style="display: none;"> 
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+    <div class="text-right col-xs-12 col-sm-12 col-md-12 col-lg-12 " style=" top: 20px;z-index: 2; ">
+      <button class="btn-cerrar-pop" onclick="closeAudios();">X</button>
+    </div>
+    <div class="fondo-bbb padding-3p borde-radius-style col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <!--<div id="container_audio_play" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>-->
+        <div id="container_audio_text" class="scroll-data margin-top-3 fondo-fff borde-radius-style col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+    </div>
+   </div>
+   </div>
+  </div>
+<!-- end div info audio or text-->

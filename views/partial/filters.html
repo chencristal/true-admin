@@ -1,0 +1,123 @@
+    <!-- Start Panel --> 
+    <div class="panel-ts col-md-10">
+      <p class="text-blue-strong" id="title_panel"></p>
+
+      <input id="aux-date-start" style="display:none" >
+      <input id="aux-date-end" style="display:none">
+
+      <!-- INICIO SECCION SELECCION FECHAS --> 
+      <div style="">
+        <!-- Start table 1--> 
+        <div style="width: 100%; display:inline-block;">
+          <table class="table-date">
+            <tr>
+              <th> </th>
+              <th class="tg-yw4l"> Day</th>
+              <th class="tg-yw4l"> Month</th>
+              <th class="tg-yw4l"> Year</th>
+              <th> </th>
+              <th></th>
+              <th class="tg-yw4l">Day</th>
+              <th class="tg-yw4l">Month</th>
+              <th class="tg-yw4l">Year</th>
+              <th></th>
+              <th class="col-md-4">call center</th>
+              <th class="col-md-4">Campaign</th>
+            </tr>
+            <tr>
+              <td class="text-blue-strong tg-yw4l"><span>From</span></td>
+              <td class="tg-yw4l"><input name="day_start" id="day_start" type="text"></td>
+              <td class="tg-yw4l"><input name="month_start" id="month_start" type="text"></td>
+              <td class="tg-yw4l"><input name="year_start" id="year_start" type="text"></td>
+              <td class="tg-yw4l"><img id="datepicker-button-start" src="img/calendar.png" alt=""></td>
+              <td class="text-blue-strong tg-yw4l">To</td>
+              <td class="tg-yw4l"><input name="day_end" id="day_end" type="text"></td>
+              <td class="tg-yw4l"><input name="month_end" id="month_end" type="text"></td>
+              <td class="tg-yw4l"><input name="year_end" id="year_end" type="text"></td>
+              <td class="tg-yw4l"><img id="datepicker-button-end" src="img/calendar.png" alt=""></td>
+              <td class="tg-yw4l"><div class = "selectpickcer-content" style="width: 100%"><select  id="select_callcenter" class="opt-descarga selectpicker" multiple="multiple" ></select></div></td>
+              <td> <div class = "selectpickcer-content" style="width: 100% "  ><select  id="select_campaign" class="opt-descarga selectpicker" multiple="multiple" > </select></div></td>
+            </tr>  
+          </table>
+        </div>
+        <!-- End table --> 
+
+      <div style="width: 100%;display: inline-block;">
+        <table>
+          <tr>
+            <th class="separate tg-yw4l">
+              Call Duration
+            </th>
+            <th class="separate tg-yw4l">
+              Agent
+            </th>
+            <th class="separate tg-yw4l">
+              Call Schedule
+            </th>
+            <th class="separate tg-yw4l">
+              Sentiment
+            </th>
+            <th>
+              
+            </th>
+          </tr>
+          <tr>
+            <td class="separate tg-yw4l">
+              <div class = "selectpickcer-content" style="width: 100%">
+                  <select  id="select_campaign" class="opt-descarga selectpicker" multiple="multiple" ></select>
+              </div>
+            </td>
+            <td class="separate tg-yw4l">
+              <div class = "selectpickcer-content" style="width: 100%">
+                <select  id="select_campaign" class="opt-descarga selectpicker" multiple="multiple" > </select>
+              </div>
+            </td>
+            <td class="separate tg-yw4l">
+              <div class = "selectpickcer-content" style="width: 100%">
+                <select  id="select_campaign" class="opt-descarga selectpicker" multiple="multiple" > </select>
+              </div>
+            </td>
+            <td class="separate tg-yw4l">
+              <div class = "selectpickcer-content" style="width: 100%">
+                <select  id="select_campaign" class="opt-descarga selectpicker" multiple="multiple" > </select>
+              </div>
+            </td>
+            <td class="separate tg-yw4l">
+              <button style="margin-top: 0 !important; border-radius: 80px;  height:40px; background-color: #1DC0E4; border-color: #1DC0E4; z-index: 1" type="submit" class="btn btn-primary button-sign-in btn-send"  onclick="btn_action()"  > Send </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+
+
+
+        <style type="text/css">
+          .tg-yw4l{
+            width: 4%
+          }
+          .opt-descarga{
+            background-color: transparent;
+            border : 1px solid grey ;
+          }
+          .bootstrap-select > .dropdown-toggle.bs-placeholder, .bootstrap-select > .dropdown-toggle.bs-placeholder:active, .bootstrap-select > .dropdown-toggle.bs-placeholder:focus, .bootstrap-select > .dropdown-toggle.bs-placeholder:hover{
+            color: grey;
+            background-color: transparent;
+          }
+          .btn-group > .btn:first-child{
+            color:grey;
+          }
+          .separate{
+            padding: 0  5px;
+          }
+          .line-banner{
+            margin-bottom: 0px;
+          }
+          .text-blue-strong{
+            margin-top: 1vh;
+            font-size: 2em;
+          }
+        </style>
+      </div>
+      <div class="alert alert-danger" id="alert_" role="alert"></div>
+      <!-- FIN SECCION SELECCION FECHAS --> 

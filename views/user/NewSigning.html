@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> TrueService | Login </title>
+
+     <!-- Bootstrap CSS  -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen">
+
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="screen">
+
+  <!-- Slicknav -->
+  <link rel="stylesheet" type="text/css" href="css/slicknav.css" media="screen">
+
+  <!-- Margo CSS Styles  -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+
+  <!-- Responsive CSS Styles  -->
+  <link rel="stylesheet" type="text/css" href="css/responsive.css" media="screen">
+
+  <!-- Css3 Transitions Styles  -->
+  <link rel="stylesheet" type="text/css" href="css/animate.css" media="screen">
+</head>
+<body>
+
+
+    <!-- Start Banner -->
+    <section id="home" class="container-banner">
+        <div id="main-slide" class="carousel slide" data-ride="carousel">
+      <div class="item active">
+        <div class="slider-content text-banner">
+            <h2 id="ani2" class="animated2">
+              <span id="titleLog"><strong>WELCOME TO THE TRUESERVICE EXPERIENCE</strong></span>
+            </h2>
+            <h3 class="animated3" id="ani3">
+            </h3>
+        </div>
+      </div>
+    </section>
+    <!-- End Banner -->
+<div class="row" id="rowLog">
+       <div id="colRow" class="col-md-12">
+        <div id="inlineRow">
+          <img src="img/logo_service.png" alt="">
+        </div>
+        <!-- <div style=" background-color: red; margin-top: 20px;display:inline; height:65px; width:205px; float:right;">
+        </div>-->
+        <hr id="hr1">
+        <div class="hidden" data-response="<%= response %>" id="res-err"></div>
+        <div class="col-md-4 col-sm-4"></div>
+        <form action="/newLogin" method="post"> 
+          <div class="col-md-4 col-sm-4 col-xm-4">
+            <div id="divLog" class="center-block" style="padding: 30px;">
+            <h3 id="h3Client">New Password</h3>
+              <form class="col-md-4" action="" method="POST">
+                <span for="user">Username: </span>
+                <input type="text" id="user" name="user" required placeholder="Username">
+                <br><br>
+                <span for="oldPass">Old Password: </span>
+                <input type="password" id="oldPass" required name="oldPass" placeholder="Old Password">
+                <br><br>
+                <span for="newPass">New Password: </span>
+                <input type="password" id="newPass" required name="newPass" placeholder="New Password">
+                <br><br>
+                <span for="conPass">Confirm Password: </span>
+                <input type="password" id="conPass" required name="conPass" placeholder="Confirm Password">
+                <br><br>
+                <button type="submit" class="btn-home btn btn-system btn-large btn-primary button-sign-in" id="btn-graficar">Send</button>
+              </form>
+            </div>
+          </div>
+        </form>
+        <div class="col-md-4 col-sm-4"></div>
+      </div>
+    </div>
+
+  
+  
+
+<% include ../partial/footer.html %>
+
+
+
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/jquery.migrate.js"></script>
+  <script type="text/javascript" src="js/modernizrr.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery.fitvids.js"></script>
+  <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="js/nivo-lightbox.min.js"></script>
+  <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+  <script type="text/javascript" src="js/jquery.appear.js"></script>
+  <script type="text/javascript" src="js/count-to.js"></script>
+  <script type="text/javascript" src="js/jquery.textillate.js"></script>
+  <script type="text/javascript" src="js/jquery.lettering.js"></script>
+  <script type="text/javascript" src="js/jquery.easypiechart.min.js"></script>
+  <script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+  <script type="text/javascript" src="js/jquery.parallax.js"></script>
+  <script type="text/javascript" src="js/mediaelement-and-player.js"></script>
+  <script type="text/javascript" src="js/jquery.slicknav.js"></script>
+  <script type="text/javascript" src="js/top-menu.js"></script>
+</body>
+</html>

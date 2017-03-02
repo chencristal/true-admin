@@ -1,0 +1,80 @@
+<!-- Inicio Container graficas y menu -->    
+<div class="row container-main">
+  <div class="true-loader">
+    <img src="src/loader.gif">
+  </div>
+  <div class="col-md-12 col-sm-12 col-xs-12">
+
+    <!-- Start Div banner-->   
+    <div>
+      <div style="display: inline">
+        <img src="img/logo_service.png" alt="">
+      </div>
+      <div style="display:inline; width:25%; float:right;">
+        <img id="logo_company" src="img/logo/trueandicall.png" alt="">
+      </div>
+    </div>
+    <!-- End Div banner--> 
+
+    <!-- Start Line --> 
+    <div class="col-md-12">
+      <hr class= "line-banner">
+    </div>
+    <!-- End Line --> 
+
+
+    <!-- Start Menu --> 
+    <div class="col-md-2 sidebar-ts">
+    <!-- Start Img profile --> 
+      <div>
+        <img class="logo-user" src="img/profile.png" alt="">
+      </div>
+      <!-- End Img profile --> 
+
+      <!-- Start name user --> 
+      <span class="span-menu">User</span>
+      <!-- End name user --> 
+      <br>
+      <br>        
+      <!-- Start reports span --> 
+      <span class="span-menu">Reports</span>
+      <!-- End reports span --> 
+
+      <!-- Start ul menu --> 
+      <ul class="menu-sidebar-ts">
+        <!--<li id="item-menu-sidebar-0" class="item-menu-ts"><a href="/summary">Summary</a></li>-->
+        <li id="item-menu-sidebar-1" class="item-menu-ts">Audios</li>
+        <ul id="sunmenu-sidebar-1" style="display: none; background: #B9DFFF; width: 65%; text-align:center; margin: 0 auto; border-radius:0 0 10px 10px">
+          <li style="padding: 10px 0;" id="audios_agents"><a href="/audioagente">Agents</a></li>
+          <hr style="margin: 0 !important; width: 80%; display:inline-block;">
+          <li style="padding: 10px 0;" id="audios_customers"><a href="/audiousuario"> Customers </a></li>
+          <hr style="margin: 0 !important; width: 80%; display:inline-block;">
+          <li style="padding: 10px 0;" id="audios_products"><a href="/audioproducto">Products and Services</a></li>
+          <hr style="margin: 0 !important; width: 80%; display:inline-block;">
+          <li style="padding: 10px 0;" id="call_statistic"><a href="/reports">Call Statistic</a></li>
+        </ul>
+        <!--<li id="item-menu-sidebar-2" class="item-menu-ts">Social Networks</li>
+        <ul id="sunmenu-sidebar-2" style="display:none ; background: #B9DFFF; width: 65%; text-align:center; margin: 0 auto; border-radius:0 0 10px 10px">
+          <li style="padding: 10px 0;" id="social_twitter"><a href="/twitter">Twitter</a></li>-->
+        <!--<hr style="margin: 0 !important; width: 80%; display:inline-block;">
+        <li style="padding: 10px 0;" ><a href="#"> Facebook </a></li>-->
+        <!--</ul>-->
+        <!--<li id="item-menu-sidebar-3" class="item-menu-ts">Email</li>-->
+        <!--<li id="item-menu-sidebar-4" class="item-menu-ts">Chats</li>-->
+        <!--<li id="item-menu-sidebar-5" class="item-menu-ts">Notes</li>-->
+
+        
+        <li id="item-menu-sidebar-6" class="last-item item-menu-ts">Log out</li>
+      </ul>
+      <!-- End ul menu -->
+    </div>
+    <!-- End Menu -->
+    <script type="text/javascript">
+      try{
+          $('#logo_company').attr('src','<%-company_logo %> ');
+      }catch(e){
+        console.log(e);
+        $('#logo_company').attr('src',' ');
+      }
+    </script>
+  
